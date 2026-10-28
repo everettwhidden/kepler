@@ -37,9 +37,11 @@ def simulate(r0, v0, dt, n_steps):
 # returns total energy (ke + pe)
 def energy(r, v):
     d = np.linalg.norm(r)
-    ke = (v**2)/2
+    speed = np.linalg.norm(v)
+    ke = (speed**2)/2
     pe = -G*M/d
     return ke + pe
 
 def angular_momentum(r, v):
     return r[0]*v[1] - v[0]*r[1] #cross product of r and v (both vectors)
+
